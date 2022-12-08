@@ -1,13 +1,13 @@
-package br.com.jean.organizeproducts
+package br.com.jean.organizeproducts.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import br.com.jean.organizeproducts.databinding.ActivityMainBinding
+import br.com.jean.organizeproducts.databinding.ActivityRegisterProductsBinding
 
-class MainActivity : AppCompatActivity() {
+class RegisterProductsActivity : AppCompatActivity() {
 
     private val binding by lazy {
-        ActivityMainBinding.inflate(layoutInflater)
+        ActivityRegisterProductsBinding.inflate(layoutInflater)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
