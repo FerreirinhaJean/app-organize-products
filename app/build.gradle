@@ -7,6 +7,10 @@ android {
     namespace 'br.com.jean.organizeproducts'
     compileSdk 32
 
+    viewBinding {
+        enabled = true
+    }
+
     defaultConfig {
         applicationId "br.com.jean.organizeproducts"
         minSdk 22
