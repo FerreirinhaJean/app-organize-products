@@ -8,7 +8,7 @@ import br.com.jean.organizeproducts.databinding.ProductItemBinding
 import br.com.jean.organizeproducts.model.Product
 
 class ProductListAdapter(
-    val products: List<Product>,
+    val products: List<Product> = emptyList(),
     private val context: Context
 ) : RecyclerView.Adapter<ProductListAdapter.MyViewHolder>() {
 
