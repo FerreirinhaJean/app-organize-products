@@ -41,6 +41,7 @@ class RegisterProductsActivity : AppCompatActivity() {
 
                 lifecycleScope.launch {
                     productDao.saveObject(product)
+                    finish()
                 }
             }
         }

@@ -6,11 +6,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.jean.organizeproducts.databinding.ProductItemBinding
 import br.com.jean.organizeproducts.model.Product
+import java.text.NumberFormat
+import java.util.*
 
 class ProductListAdapter(
-    val products: List<Product> = emptyList(),
+    products: List<Product> = emptyList(),
     private val context: Context
 ) : RecyclerView.Adapter<ProductListAdapter.MyViewHolder>() {
+
+    private val products = products.toMutableList()
 
     inner class MyViewHolder(
         private val binding: ProductItemBinding
@@ -25,8 +29,12 @@ class ProductListAdapter(
 
             name.text = product.name
             description.text = product.description
-            price.text = product.price.toString()
+            price.text = convertPriceToCurrency(product.price)
         }
+
+        fun convertPriceToCurrency(value: Double): String =
+            NumberFormat.getCurrencyInstance(Locale("pt", "BR")).format(value)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -42,4 +50,11 @@ class ProductListAdapter(
     override fun getItemCount(): Int {
         return products.size
     }
+
+    fun update(products: List<Product>) {
+        this.products.clear()
+        this.products.addAll(products)
+        notifyDataSetChanged()
+    }
+
 }

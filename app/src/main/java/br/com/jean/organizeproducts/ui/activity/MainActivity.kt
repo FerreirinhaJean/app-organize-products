@@ -30,12 +30,19 @@ class MainActivity : AppCompatActivity() {
 
         val recyclerView = binding.activityMainRecyclerview
         recyclerView.adapter = productAdapter
+    }
 
+    override fun onResume() {
+        super.onResume()
         lifecycleScope.launch {
             Log.i("MainActivity", "onCreate: BEFORE")
             val all = productDao.getAll()
             Log.i("MainActivity", "onCreate: ${all}")
+
+            productAdapter.update(all)
         }
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
